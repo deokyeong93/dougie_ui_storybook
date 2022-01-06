@@ -3,7 +3,6 @@
     "noImplicitAny": true,
     "target": "es5",
     "jsx": "react",
-    "jsxFactory": "h",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
