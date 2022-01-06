@@ -9,10 +9,11 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@src/*": ["src/ts/*"]
+      "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"]
     },
     "sourceMap": true
   },
-  "include": ["src/ts/**/*.ts", "src/ts/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]
 }
