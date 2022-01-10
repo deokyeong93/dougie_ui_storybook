@@ -1,8 +1,25 @@
 import React, { ReactChildren, ReactNode } from 'react'
-import styled from 'styled-components'
-import { ButtonProps } from './interface'
+import styled, { css } from 'styled-components'
+import { ButtonProps, ButtonStyleProps } from './Button.type'
+import { backgroundStyles, sizes } from './style/constant'
 
-const StyledButton = styled.button`
+const sizeStyle = ({ size }: ButtonStyleProps) => {
+	const _size = size || 'medium'
+
+	return css`
+		${sizes[_size]}
+	`
+}
+
+const backgroundStyle = ({ color }: ButtonStyleProps) => {
+	const _color = color || 'blue'
+
+	return css`
+		${backgroundStyles[_color]}
+	`
+}
+
+const StyledButton = styled.button<ButtonProps>`
 	/* 공통 스타일 */
 	display: inline-flex;
 	outline: none;
@@ -11,29 +28,21 @@ const StyledButton = styled.button`
 	color: white;
 	font-weight: bold;
 	cursor: pointer;
-	padding: 0.5rem 1rem;
 
 	/* 크기 */
-	height: 2.25rem;
-	font-size: 1rem;
+	${sizeStyle}
 
 	/* 색상 */
-	background: #228be6;
-	&:hover {
-		background: #339af0;
-	}
-	&:active {
-		background: #1c7ed6;
-	}
+	${backgroundStyle}
 
 	/* 기타 */
-	& + & {
+	&:not(:first-child) {
 		margin-left: 1rem;
 	}
 `
 
-const Button = function ({ children, ...rest }: ButtonProps) {
-	return <StyledButton {...rest}>{children}</StyledButton>
+const Button = function ({ label, ...rest }: ButtonProps) {
+	return <StyledButton {...rest}>{label}</StyledButton>
 }
 
 export default Button
