@@ -27,18 +27,18 @@ export const checkBoxThemeObj = {
 				background: ${lighten(0.1, 'green')};
 			`,
 		},
-	}
-		blue: {
-			stroke: css`
-				stroke: white;
+	},
+	blue: {
+		stroke: css`
+			stroke: white;
+		`,
+		boxBackGround: {
+			nonActive: css`
+				background: white;
 			`,
-			boxBackGround: {
-				nonActive: css`
-					background: white;
-				`,
-				active: css`
-					background: ${lighten(0.1, 'blue')};
-				`,
-			},
+			active: css`
+				background: ${lighten(0.1, 'blue')};
+			`,
+		},
 	},
 }

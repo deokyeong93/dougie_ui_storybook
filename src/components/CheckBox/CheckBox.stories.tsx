@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof CheckBox> = (args) => <CheckBox {...args} 
 
 export const Basic = Template.bind({})
 Basic.args = {
-	label: '체크 박스',
+	theme: 'black',
 	checked: true,
 	scale: 2
 }

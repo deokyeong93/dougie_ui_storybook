@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { CheckBoxProps, CheckBoxStyleProps } from './CheckBox.type'
 import { checkBoxThemeObj } from './style/constant'
 
@@ -26,8 +26,10 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 
 const StyledCheckbox = styled.div<CheckBoxProps>`
 	display: inline-block;
-	width: 1rem;
-	height: 1rem;
+	${({ scale }: CheckBoxStyleProps) => css`
+		width: ${scale} * 1rem;
+		height: ${scale} * 1rem;
+	`}
 	${({ checked, theme }: CheckBoxProps) =>
 		checked
 			? checkBoxThemeObj[theme].boxBackGround.active
@@ -40,10 +42,14 @@ const StyledCheckbox = styled.div<CheckBoxProps>`
 	}
 `
 
-const Checkbox = ({ className, checked, ...props }: CheckBoxProps) => (
+StyledCheckbox.defaultProps = {
+	scale : 1
+}
+
+const Checkbox = ({ className, checked, scale, ...props }: CheckBoxProps) => (
 	<CheckboxContainer className={className}>
 		<HiddenCheckbox checked={checked} {...props} />
-		<StyledCheckbox checked={checked}>
+		<StyledCheckbox scale={scale} checked={checked}>
 			<CheckIcon viewBox="0 0 24 24">
 				<polyline points="20 6 9 17 4 12" />
 			</CheckIcon>

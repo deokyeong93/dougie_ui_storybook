@@ -1,6 +1,6 @@
 export interface CheckBoxStyleProps {
   theme : 'black' | 'blue' | 'green',
-  scale : number
+  scale ?: number
 }
 
 export interface CheckBoxProps extends CheckBoxStyleProps {
